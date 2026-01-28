@@ -1,0 +1,15 @@
+DAX Measures Overview :
+
+### churn_measures.dax
+Includes:
+- Churned Patients
+- Churn Rate %
+- Churn Revenue
+- Churn Revenue Rate %
+
+### campaign_simulation.dax
+Includes:
+- SMS Campaign Cost
+- Recovered Revenue (What-if parameter)
+- Net Revenue Gain
+- ROI
