@@ -21,3 +21,32 @@ Data model :
 * Quantified churn revenue (≈ X mln),
 * Simulated retention campaign with dynamic recovery rate (10–20%), 
 * Delivered actionable business recommendations
+
+## Project Structure
+
+```text
+healthcare-churn-analysis/
+│
+├── README.md                  ← Project overview (for recruiters)
+│
+│
+├── sql/
+│   ├── 01_base_tables.sql
+│   ├── 02_monthly_aggregation.sql
+│   ├── 03_churn_identification.sql
+│   └── README.md              ← SQL logic explained
+│
+├── dax/
+│   ├── churn_measures.dax
+│   ├── revenue_measures.dax
+│   ├── campaign_simulation.dax
+│   └── README.md              ← DAX measures explained
+│
+├── powerbi/
+│   ├── dashboard_screenshots/
+│   └── dashboard_description.md
+│
+├── insights/
+│   └── insights_and_recommendations.md
+│
+└── assumptions_and_limitations.md
