@@ -25,7 +25,6 @@ Data model :
 
 ## Project Structure
 
-```text
 healthcare-churn-analysis/
 │
 ├── README.md                  ← Project overview (for recruiters)
@@ -44,8 +43,11 @@ healthcare-churn-analysis/
 │   └── README.md              ← DAX measures explained
 │
 ├── powerbi/
-│   ├── dashboard_screenshots/
-│   └── dashboard_description.md
+│    └── dashboard_screenshots/
+│        ├── 01_overview.png
+│        ├── 02_churn_analysis.png
+│        ├── 03_sms_campaign_simulation.png
+│        └── 04_insights.png
 │
 ├── insights/
 │   └── insights_and_recommendations.md
