@@ -14,6 +14,7 @@ Data model :
 * clinics,
 * patient_visits,
 * procedures
+  
  Monthly grain was chosen to align churn definition with business reporting cycles.
 
  Key Outcomes (bullet points)
