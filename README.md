@@ -3,7 +3,7 @@
 Project Overview :
 The goal of this project is to analyze patient churn in a healthcare network and quantify revenue loss caused by churn.
 Additionally, the project evaluates the potential ROI of a retention campaign (SMS) under different recovery scenarios.
-```text
+
 Tech Stack :
 * SQL (PostgreSQL),
 * Power BI,
