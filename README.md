@@ -27,16 +27,16 @@ Additionally, the project evaluates the potential ROI of a retention campaign (S
 ## Power BI Dashboard – Preview
 
 ### 1. Executive Overview
-![Overview](dashboard_screenshot/01_overview.png)
+![Overview](powerbo/dashboard_screenshot/01_overview.png)
 
 ### 2. Churn Analysis
-![Churn](dashboard_screenshot/02_churn_analysis.png)
+![Churn](powerbi/dashboard_screenshot/02_churn_analysis.png)
 
 ### 3. SMS Campaign Simulation
-![Campaign](dashboard_screenshot/03_sms_campaign_simulation.png)
+![Campaign](powerbi/dashboard_screenshot/03_sms_campaign_simulation.png)
 
 ### 4. Business Insights & Recommendations
-![Insights](dashboard_screenshot/04_insights.png)
+![Insights](powerbi/dashboard_screenshot/04_insights.png)
 
 
 ## Project Structure
@@ -60,11 +60,12 @@ healthcare-churn-analysis/
 │   └── README.md              ← DAX measures explained
 │
 ├── powerbi/
-│    └── dashboard_screenshots/
-│        ├── 01_overview.png
-│        ├── 02_churn_analysis.png
-│        ├── 03_sms_campaign_simulation.png
-│        └── 04_insights.png
+      ├──informations
+│     └── dashboard_screenshot/
+│            ├── 01_overview.png
+│            ├── 02_churn_analysis.png
+│            ├── 03_sms_campaign_simulation.png
+│            └── 04_insights.png
 │
 ├── insights/
 │   └── insights_and_recommendations.md
