@@ -12,9 +12,9 @@ Additionally, the project evaluates the potential ROI of a retention campaign (S
 * Python (faker)
 
 ### Data model :
-* clinics,
-* patient_visits,
-* procedures
+* clinics.csv,
+* patient_visits.csv (900k rekords),
+* procedure.csv
   
  Monthly grain was chosen to align churn definition with business reporting cycles.
 
@@ -23,6 +23,21 @@ Additionally, the project evaluates the potential ROI of a retention campaign (S
 * Quantified churn revenue (≈ X mln),
 * Simulated retention campaign with dynamic recovery rate (10–20%), 
 * Delivered actionable business recommendations
+
+## Power BI Dashboard – Preview
+
+### 1. Executive Overview
+![Overview](powerbi/dashboard_screenshots/01_overview.png)
+
+### 2. Churn Analysis
+![Churn](powerbi/dashboard_screenshots/02_churn_analysis.png)
+
+### 3. SMS Campaign Simulation
+![Campaign](powerbi/dashboard_screenshots/03_sms_campaign_simulation.png)
+
+### 4. Business Insights & Recommendations
+![Insights](powerbi/dashboard_screenshots/04_insights.png)
+
 
 ## Project Structure
 
