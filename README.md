@@ -27,16 +27,16 @@ Additionally, the project evaluates the potential ROI of a retention campaign (S
 ## Power BI Dashboard – Preview
 
 ### 1. Executive Overview
-![Overview](dashboard_screenshots/01_overview.png)
+![Overview](dashboard_screenshot/01_overview.png)
 
 ### 2. Churn Analysis
-![Churn](dashboard_screenshots/02_churn_analysis.png)
+![Churn](dashboard_screenshot/02_churn_analysis.png)
 
 ### 3. SMS Campaign Simulation
-![Campaign](dashboard_screenshots/03_sms_campaign_simulation.png)
+![Campaign](dashboard_screenshot/03_sms_campaign_simulation.png)
 
 ### 4. Business Insights & Recommendations
-![Insights](dashboard_screenshots/04_insights.png)
+![Insights](dashboard_screenshot/04_insights.png)
 
 
 ## Project Structure
