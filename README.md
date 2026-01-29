@@ -27,7 +27,7 @@ Additionally, the project evaluates the potential ROI of a retention campaign (S
 ## Power BI Dashboard – Preview
 
 ### 1. Executive Overview
-![Overview](powerbo/dashboard_screenshot/01_overview.png)
+![Overview](powerbi/dashboard_screenshot/01_overview.png)
 
 ### 2. Churn Analysis
 ![Churn](powerbi/dashboard_screenshot/02_churn_analysis.png)
