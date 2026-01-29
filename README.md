@@ -25,6 +25,7 @@ Data model :
 
 ## Project Structure
 
+```text
 healthcare-churn-analysis/
 │
 ├── README.md                  ← Project overview (for recruiters)
