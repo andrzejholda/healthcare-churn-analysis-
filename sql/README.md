@@ -23,3 +23,9 @@ Purpose:
 - Identify churn using LEAD(month)
 - Flag patients inactive in the following month
 - Avoid false churn at dataset boundaries
+
+Key logic:
+- is_churn = 1 if patient is active in month M but inactive in M+1
+
+Result:
+- Monthly patient activity table used directly in Power BI
