@@ -1,15 +1,20 @@
-# DAX Measures Overview :
+# DAX Measures Overview
 
-### churn_measures.dax
-Includes:
-- Churned Patients
-- Churn Rate %
-- Churn Revenue
-- Churn Revenue Rate %
+## This folder contains all DAX measures used in Power BI dashboards:
 
-### campaign_simulation.dax
-Includes:
-- SMS Campaign Cost
-- Recovered Revenue (What-if parameter)
-- Net Revenue Gain
-- ROI
+#### 1. churn_measures.dax
+   - Churned Patients
+   - Total Patients
+   - Churn Rate %
+
+#### 2. revenue_measures.dax
+   - Churn Revenue
+   - Total Revenue
+   - Churn Revenue %
+
+#### 3. campaign_simulation.dax
+   - Recovery Rate (what-if parameter)
+   - SMS Campaign Cost
+   - Recovered Revenue
+   - Net Revenue Gain
+   - ROI
