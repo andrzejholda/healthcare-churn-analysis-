@@ -72,3 +72,4 @@ healthcare-churn-analysis/
 │   └── insights_and_recommendations.md
 │
 └── assumptions_and_limitations.md
+    └── informations.md
