@@ -1,9 +1,8 @@
-* Churn Revenue = CALCULATE
-                  (SUM('public patient_visits'[revenue]),Query1[is_churn] =1)
+*  Total Patients = DISTINCTCOUNT('public patient_visits'[patient_id])
 
 * Churned Customers = CALCULATE
                       (DISTINCTCOUNT('public patient_visits'[patient_id]),Query1[is_churn] =1)
 
 * Churn Rate % = DIVIDE([Churned Patients],[Total Patients])*100
 
-* Churned Revenue % = DIVIDE([Churn Revenue],[Total Revenue])*100
+
