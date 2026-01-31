@@ -51,16 +51,17 @@ healthcare-churn-analysis/
 │   ├── 01_base_tables.sql
 │   ├── 02_monthly_aggregation.sql
 │   ├── 03_churn_identification.sql
-│   └── README.md              ← SQL logic explained
+│   └── informations.md              ← SQL logic explained
 │
 ├── dax/
 │   ├── churn_measures.dax
 │   ├── revenue_measures.dax
 │   ├── campaign_simulation.dax
-│   └── README.md              ← DAX measures explained
+│   └── informations.md              ← DAX measures explained
 │
 ├── powerbi/
-│     ├──informations
+│     ├── Patient Retention & Revenue Impact Analysis.pbix
+│     ├── informations.md
 │     └── dashboard_screenshot/
 │            ├── 01_overview.png
 │            ├── 02_churn_analysis.png
