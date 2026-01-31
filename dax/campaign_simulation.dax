@@ -1,0 +1,24 @@
+-- Parametr recovery rate (slicer)
+Recovery Rate := SELECTEDVALUE('Parameters'[Recovery Rate], 0.1)  -- default 10%
+
+-- Cost of SMS campaign (0.1 PLN per patient)
+SMS Campaign Cost :=
+CALCULATE(
+    [Churned Patients] * 0.1
+)
+
+-- Recovered Revenue
+Recovered Revenue :=
+[Churn Revenue] * [Recovery Rate]
+
+-- Net Revenue Gain
+Net Revenue Gain :=
+[Recovered Revenue] - [SMS Campaign Cost]
+
+-- ROI
+ROI :=
+DIVIDE(
+    [Net Revenue Gain],
+    [SMS Campaign Cost],
+    0
+)
