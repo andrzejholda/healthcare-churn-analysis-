@@ -60,7 +60,7 @@ healthcare-churn-analysis/
 │   └── README.md              ← DAX measures explained
 │
 ├── powerbi/
-      ├──informations
+│     ├──informations
 │     └── dashboard_screenshot/
 │            ├── 01_overview.png
 │            ├── 02_churn_analysis.png
