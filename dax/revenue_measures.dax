@@ -1,0 +1,6 @@
+* Total Revenue = SUM('public patient_visits'[revenue])
+
+* Churn Revenue = CALCULATE
+                  (SUM('public patient_visits'[revenue]),Query1[is_churn] =1)
+
+* Churned Revenue % = DIVIDE([Churn Revenue],[Total Revenue])*100
