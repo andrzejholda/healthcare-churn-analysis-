@@ -28,8 +28,10 @@ churn_flag AS (
     SELECT
         *,
         CASE
-            WHEN next_month IS NULL THEN 1
-            WHEN next_month > month + INTERVAL '1 month' THEN 1
+            WHEN next_month IS NULL 
+                THEN 1
+            WHEN next_month > month + INTERVAL '1 month' 
+                THEN 1
             ELSE 0
         END AS is_churn
     FROM activity
