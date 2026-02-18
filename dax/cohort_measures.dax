@@ -1,0 +1,36 @@
+--- Retention 3M
+Retention 3M = 
+CALCULATE(
+    [RetentionCohort Rate %],
+    'public cohort_age_activity'[cohort_age] = 3
+)
+
+--- Retention 6M
+Retention 6M = 
+CALCULATE(
+    [RetentionCohort Rate %],
+    'public cohort_age_activity'[cohort_age] = 6
+)
+
+
+--- Retention 12M
+Retention 12M = 
+CALCULATE(
+    [RetentionCohort Rate %],
+    'public cohort_age_activity'[cohort_age] = 12
+)
+
+--- Cumulative Revenue
+Cumulative Revenue = 
+CALCULATE(
+    [Total Cohort Revenue],
+    FILTER(
+        ALL ( 'public cohort_age_activity' ),
+        'public cohort_age_activity'[cohort_month] = MAX ( 'public cohort_age_activity'[cohort_month] )
+            && 'public cohort_age_activity'[cohort_age]
+                <= MAX ( 'public cohort_age_activity'[cohort_age])
+    )
+)
+
+--- Total cohort revenue
+Total Cohort Revenue = SUM('public cohort_age_activity'[revenue])
