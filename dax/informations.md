@@ -11,8 +11,15 @@
    - Churn Revenue
    - Total Revenue
    - Churn Revenue %
+    
+#### 3. cohort_measures.dax
+   - Retention 3M
+   - Retention 6M
+   - Retention 12M
+   - Cumulative revenue
+   - Total cohort revenue
 
-#### 3. campaign_simulation.dax
+#### 4. campaign_simulation.dax
    - Recovery Rate (what-if parameter)
    - SMS Campaign Cost
    - Recovered Revenue
