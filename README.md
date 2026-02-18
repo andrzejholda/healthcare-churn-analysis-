@@ -54,9 +54,10 @@ healthcare-churn-analysis/
 │   └── informations.md              ← SQL logic explained
 │
 ├── dax/
-│   ├── churn_measures.dax
-│   ├── revenue_measures.dax
-│   ├── campaign_simulation.dax
+│   ├── 01_churn_measures.dax
+│   ├── 02_revenue_measures.dax
+│   ├── 03_cohort_measure.dax
+│   ├── 04_campaign_simulation.dax
 │   └── informations.md              ← DAX measures explained
 │
 ├── powerbi/
