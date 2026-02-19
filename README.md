@@ -51,6 +51,10 @@ healthcare-churn-analysis/
 │   ├── 01_base_tables.sql
 │   ├── 02_monthly_aggregation.sql
 │   ├── 03_churn_identification.sql
+│   ├── 04_cohort_base.sql
+│   ├── 05_cohort_activity.sql
+│   ├── 06_cohort_age.sql
+│   ├── 07_cohort_retention.sql
 │   └── informations.md              ← SQL logic explained
 │
 ├── dax/
