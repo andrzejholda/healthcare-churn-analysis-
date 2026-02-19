@@ -32,11 +32,14 @@ Additionally, the project evaluates the potential ROI of a retention campaign (S
 ### 2. Churn Analysis
 ![Churn](powerbi/dashboard_screenshot/02_churn_analysis.png)
 
-### 3. SMS Campaign Simulation
-![Campaign](powerbi/dashboard_screenshot/03_sms_campaign_simulation.png)
+### 4. Cohort Analysis
+![Campaign](powerbi/dashboard_screenshot/03_cohort_analysis.png)
 
-### 4. Business Insights & Recommendations
-![Insights](powerbi/dashboard_screenshot/04_insights.png)
+### 4. SMS Campaign Simulation
+![Campaign](powerbi/dashboard_screenshot/04_sms_campaign_simulation.png)
+
+### 5. Business Insights & Recommendations
+![Insights](powerbi/dashboard_screenshot/05_insights.png)
 
 
 ## Project Structure
