@@ -18,11 +18,15 @@ Additionally, the project evaluates the potential ROI of a retention campaign (S
   
  Monthly grain was chosen to align churn definition with business reporting cycles.
 
+### Cohort & LTV Analysis:
+This project tracks patient retention and revenue over time using monthly cohorts. Average Lifetime Value (LTV) is calculated per patient and aggregated by cohort to identify high-value segments and retention risk. This enables targeted retention campaigns and prioritization of high-impact clinics and procedures.
+
 ### Key Outcomes (bullet points)
-* Identified top churn-driving clinics and procedures,
-* Quantified churn revenue (≈ X mln),
-* Simulated retention campaign with dynamic recovery rate (10–20%), 
-* Delivered actionable business recommendations
+* Identified top churn-driving clinics and procedures, highlighting high-risk segments for targeted interventions
+* Quantified churn-related revenue loss (≈ X mln) and tracked it by cohort and procedure
+* Calculated Average Lifetime Value (LTV) per patient and monitored retention trends across cohorts
+* Simulated SMS retention campaigns with dynamic recovery rates (10–20%), showing potential ROI vs. campaign cost
+* Delivered actionable business recommendations to improve retention and maximize revenue recovery
 
 ## Power BI Dashboard – Preview
 
