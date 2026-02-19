@@ -1,65 +1,233 @@
-# SQL Logic Overview
+# SQL Architecture Overview
 
-This project follows a layered SQL transformation approach to ensure clean data lineage, controlled granularity, and reproducible churn calculations.
+This project follows a layered SQL transformation approach to ensure:
+
+- Clean data lineage  
+- Controlled granularity  
+- Reproducible churn calculations  
+- Lifecycle-based retention analysis  
+- Scalable LTV modeling  
+
+The SQL layer is divided into two complementary analytical models.
+
+---
+
+# 1️⃣ Behavioral Churn Model (Month-to-Month)
+
+## Objective
+
+Identify churn events based on gaps in monthly patient activity and quantify churn-related revenue loss.
+
+This model supports:
+- Operational churn tracking
+- Churn rate KPIs
+- Revenue-at-risk analysis
+- Retention campaign targeting
+
+---
 
 ## 01_base_tables.sql — Visit-Level Base Layer
 
-Purpose
-* Clean raw visit-level data
-* Filter only completed and valid visits
-* Enrich fact table with clinic and procedure dimensions
-* Preserve visit-level granularity (1 row = 1 visit)
+### Purpose
+- Clean raw visit-level data  
+- Filter only completed and valid visits  
+- Enrich the fact table with clinic and procedure dimensions  
+- Preserve visit-level granularity  
 
-Output
-* fact_patient_visits
+### Output
+`fact_patient_visits`
 
-Grain
-* One row per patient visit
+### Grain
+One row per patient visit  
 
-Key logic
-* Filters only Completed visits
-* Removes invalid revenue and missing dates
-* Uses controlled joins to dimension tables (no aggregation)
+### Key Logic
+- Filters only *Completed* visits  
+- Removes invalid revenue and missing dates  
+- Uses controlled joins to dimension tables  
+- No aggregation at this stage  
+
+---
 
 ## 02_monthly_aggregation.sql — Monthly Activity Layer
 
-Purpose
-* Aggregate visit-level data to monthly patient activity
-* Prepare dataset for churn analysis and BI reporting
-* Maintain analytical dimensions (clinic, procedure)
+### Purpose
+- Aggregate visit-level data to monthly patient activity  
+- Prepare dataset for churn analysis and BI reporting  
+- Maintain analytical dimensions (clinic, procedure)  
 
-Output
-* fact_monthly_patient_activity
+### Output
+`fact_monthly_patient_activity`
 
-Grain
-* One row per patient per month per clinic per procedure
+### Grain
+One row per patient per month per clinic per procedure  
 
-Key logic
-* Aggregates revenue at monthly level
-* Counts number of visits per month
-* Uses base fact table as input (no return to raw data)
+### Key Logic
+- Aggregates revenue at monthly level  
+- Counts number of visits per month  
+- Uses base fact table as input (no return to raw data)  
+
+---
 
 ## 03_churn_identification.sql — Churn Detection Layer
 
-Purpose
-* Identify patient churn based on activity gaps
-* Avoid false churn at dataset boundaries
-* Create a churn-ready table for Power BI
+### Purpose
+Identify patient churn based on activity gaps while avoiding false churn at dataset boundaries.
 
-Output
-* churn_flagged_activity
+### Output
+`churn_flagged_activity`
 
-Churn definition
-* A patient is considered churned in month M if they are not active in month M+1
+### Churn Definition
+A patient is considered churned in month **M** if:
+- They are not active in month **M+1**, or  
+- The gap between activity months is greater than one month  
 
-Key logic
-* Uses LEAD(month) to inspect future activity
+### Key Logic
+- Uses `LEAD(activity_month)` to inspect future activity  
+- Flags churn when:
+  - No subsequent month exists  
+  - Activity gap exceeds one month  
+- Churn is calculated at the patient level (global)  
 
-Flags churn when:
-* No subsequent month exists
-* Gap between months is greater than one month
-* Churn is calculated at the patient level (global)
+### Result
+The churn-flagged dataset is consumed directly by Power BI, where:
 
-## Result
+- churn rate  
+- churn-related revenue loss  
+- clinic-level revenue risk  
+- campaign simulations  
 
-The final churn-flagged dataset is consumed directly by Power BI, where all KPIs, churn rates, revenue loss, and campaign simulations are calculated using DAX.
+are calculated using DAX measures.
+
+---
+
+# 2️⃣ Cohort & Lifecycle Retention Model
+
+## Objective
+
+Extend the churn analysis with lifecycle-based retention tracking and cohort-level LTV evaluation.
+
+This model enables:
+
+- Cohort retention analysis (3M, 6M, 12M)
+- Early-stage churn detection
+- LTV dynamics by cohort age
+- Maturity-adjusted retention comparison
+- Strategic revenue forecasting
+
+---
+
+## 01_cohort_base.sql — Cohort Assignment
+
+### Purpose
+Assign each patient to their acquisition cohort.
+
+### Output
+`cohort_base`
+
+### Grain
+One row per patient  
+
+### Key Logic
+- Defines `cohort_month` as the first observed visit month  
+- Uses `DATE_TRUNC('month', MIN(visit_date))`  
+- Built on cleaned visit data  
+
+---
+
+## 02_cohort_activity.sql — Cohort Revenue Tracking
+
+### Purpose
+Track monthly revenue generated by each patient within their cohort lifecycle.
+
+### Output
+`cohort_activity`
+
+### Grain
+One row per patient per activity month  
+
+### Key Logic
+- Joins `cohort_base` with visit-level data  
+- Aggregates revenue at monthly level  
+- Preserves cohort dimension  
+
+---
+
+## 03_cohort_age.sql — Lifecycle Calculation
+
+### Purpose
+Calculate the lifecycle stage (age) of each patient relative to their cohort start.
+
+### Output
+`cohort_age_activity`
+
+### Grain
+One row per patient per cohort age month  
+
+### Key Logic
+- Computes `cohort_age` as month difference between:
+  - `activity_month`
+  - `cohort_month`
+- Enables lifecycle-based retention curves  
+
+---
+
+## 04_cohort_retention.sql — Retention Aggregation
+
+### Purpose
+Calculate active patient counts by cohort and lifecycle month.
+
+### Output
+`cohort_retention`
+
+### Grain
+One row per cohort month per cohort age  
+
+### Key Logic
+- Counts distinct active patients  
+- Enables calculation of:
+  - 3-month retention  
+  - 6-month retention  
+  - 12-month retention  
+  - Retention curves over time  
+
+---
+
+# Data Flow Summary
+
+Raw Visits  
+→ `fact_patient_visits`  
+→ `fact_monthly_patient_activity`  
+→ `churn_flagged_activity`  
+
+Parallel lifecycle branch:  
+
+`fact_patient_visits`  
+→ `cohort_base`  
+→ `cohort_activity`  
+→ `cohort_age_activity`  
+→ `cohort_retention`
+
+---
+
+# Analytical Value of the Combined Model
+
+By combining:
+
+- Event-based churn detection  
+- Cohort-based retention tracking  
+- Lifecycle LTV estimation  
+
+the project delivers a comprehensive retention analytics framework that supports both:
+
+- Short-term operational decisions  
+- Long-term strategic revenue optimization  
+
+---
+
+This architecture demonstrates:
+
+✔ Layered design  
+✔ Controlled granularity  
+✔ Clear data lineage  
+✔ Lifecycle modeling  
+✔ Enterprise-level analytical rigor
