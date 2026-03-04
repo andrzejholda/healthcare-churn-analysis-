@@ -8,7 +8,7 @@
 -- A patient is considered churned in month M
 -- if they are not active in month M+1
 
-CREATE OR REPLACE VIEW churn_flagged_activity AS
+CREATE OR REPLACE VIEW churn_identification AS
 WITH activity AS (
     SELECT
         patient_id,
