@@ -1,4 +1,4 @@
-# healthcare-churn-analysis-
+# healthcare-churn-analysis
 
 ## Project Overview 
 
