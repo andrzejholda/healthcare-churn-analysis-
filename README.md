@@ -61,11 +61,11 @@ Average Patient Lifetime Value (LTV) is calculated to estimate long-term revenue
                                                    ↓
                                           PostgreSQL Database
                                                    ↓
-                                      SQL Views (Churn + Cohort Modeling)
+                                  SQL Views (Churn + Cohort Modeling)
                                                    ↓
-                                     Power BI Semantic Layer (DAX Measures)
+                                 Power BI Semantic Layer (DAX Measures)
                                                    ↓
-                                  Interactive Dashboards & Business Insights
+                                Interactive Dashboards & Business Insights
 
 
 
